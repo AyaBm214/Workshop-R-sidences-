@@ -1,0 +1,32 @@
+<div class="search-container">
+    <input type="text" [(ngModel)]="searchText" placeholder="Rechercher par adresse..." class="search-input" />
+  </div>
+  
+  <div class="residences-container">
+    <div class="residence-card" *ngFor="let residence of filteredResidences()">
+      <img [src]="residence.image" alt="{{ residence.name }}" class="residence-image">
+      <div class="residence-details">
+        <h2 class="residence-name">{{ residence.name }}</h2>
+        <p class="residence-status" [ngClass]="residence.status.toLowerCase()">
+          Status: {{ residence.status }}
+        </p>
+  
+        <!-- Bouton Show Location -->
+        <button (click)="showLocation(residence)" class="location-button">Show Location</button>
+  
+        <!-- Bouton Like -->
+        <button (click)="toggleFavorite(residence)" class="like-button">
+          {{ isFavorite(residence) ? 'Unlike' : 'Like' }}
+        </button>
+  
+        <!-- Afficher l'adresse si elle est connue -->
+        <p *ngIf="residenceToShow === residence.id && residence.address !== 'inconnu'" class="residence-address">
+          Adresse: {{ residence.address }}
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
