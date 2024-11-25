@@ -1,5 +1,8 @@
 <div class="apartments-list">
-    <h1>Liste des appartements pour la résidence {{ residenceId }}</h1>
+    <!-- Bouton pour créer un appartement -->
+    <button routerLink="/create-apartment" class="action-button">Créer un appartement</button>
+  </div>
+    <h1>Liste des appartements</h1>
   
     <!-- Afficher les appartements -->
     <div *ngFor="let apartment of apartments" class="apartment-card">
@@ -7,13 +10,9 @@
       <p>Étage: {{ apartment.floorNum }}</p>
       <p>Surface: {{ apartment.surface }} m²</p>
       <p>Terrasse: {{ apartment.terrace ? 'Oui' : 'Non' }}</p>
-      <p>Surface Terrasse: {{ apartment.surfaceterrace }} m²</p>
+      <p>Surface Terrasse: {{ apartment.surfaceTerrace }} m²</p>
       <p>Catégorie: {{ apartment.category }}</p>
     </div>
-  
-    <!-- Bouton pour créer un appartement -->
-    <button routerLink="/create-apartment" class="action-button">Créer un appartement</button>
-  </div>
   <!-- Afficher les appartements -->
   <div *ngFor="let apartment of apartments" class="apartment-card">
     <h2>Appartement {{ apartment.apartNum }}</h2>

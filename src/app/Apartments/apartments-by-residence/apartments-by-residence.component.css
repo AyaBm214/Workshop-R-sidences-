@@ -1,0 +1,43 @@
+.apartments-list {
+    /* Overall container styling */
+    padding: 20px;
+    background-color: #f0f0f0; /* Light background */
+  }
+  
+  .apartment-card {
+    /* Card styling */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff; /* White background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .apartment-card h2 {
+    /* Heading styling */
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .apartment-card p {
+    /* Paragraph styling */
+    margin-bottom: 5px;
+  }
+  
+  .action-button {
+    /* Button styling */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .action-button:hover {
+    background-color: 1    
+
+   #0062cc;
+  }

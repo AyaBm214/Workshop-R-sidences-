@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './detail-residence.component.html',
   styleUrls: ['./detail-residence.component.css']
 })
-export class DetailResidenceComponent implements OnInit{
+export class DetailResidenceComponent {
   residence: any | null = null; // Propriété pour stocker les données de la résidence
   residences = [
     {id:1,"name": "Omran 15","address":"Prés du MG Génèrale ", "image":"../../assets/images/R1.jpeg", status: "Disponible"},
@@ -28,7 +28,7 @@ export class DetailResidenceComponent implements OnInit{
   nextResidence(): void {
     if (this.residence) {
       const currentIndex = this.residences.findIndex(res => res.id === this.residence.id);
-      const nextIndex = (currentIndex + 1) % this.residences.length; // Boucle circulaire
+      const nextIndex = (currentIndex + 1) % this.residences.length; 
       const nextId = this.residences[nextIndex].id;
 
       // Redirection vers la prochaine résidence

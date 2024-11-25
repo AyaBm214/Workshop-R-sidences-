@@ -6,12 +6,14 @@ import { DetailResidenceComponent } from './Residences/detail-residence/detail-r
 import { AddResidenceComponent } from './Residences/add-residence/add-residence.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ApartmentsByResidenceComponent } from './Apartments/apartments-by-residence/apartments-by-residence.component';
+import { ApartmentsComponent } from './Apartments/apartments/apartments.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'residences', component: ResidencesComponent },
   { path: 'residences/:id', component: DetailResidenceComponent  },
   { path: 'add-residence', component: AddResidenceComponent },
+  {path : 'apartments', component:ApartmentsComponent},
   { path: 'residences/:id/apartments', component: ApartmentsByResidenceComponent },
     { path: '**', component: NotFoundComponent },
 
