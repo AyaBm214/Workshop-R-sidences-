@@ -1,0 +1,25 @@
+.header-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background-color: #2c3e50; /* Nouveau fond coloré */
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #ecf0f1; /* Texte clair pour contraster avec le fond sombre */
+    font-weight: 600;
+    font-size: 1.2em;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.header-nav a:hover {
+    background-color: #34495e; /* Changement de fond au survol */
+    color: #f1faee; /* Couleur claire du texte au survol */
+    transform: scale(1.05);
+}

@@ -1,0 +1,23 @@
+<div class="add-residence-container">
+    <h1>{{ residenceId ? 'Update Residence' : 'Add Residence' }}</h1>
+    <form (ngSubmit)="saveResidence()">
+      <div>
+        <label for="name">Nom:</label>
+        <input id="name" type="text" name="name" />
+      </div>
+      <div>
+        <label for="address">Adresse:</label>
+        <input id="address" type="text" name="address" />
+      </div>
+      <div>
+        <label for="status">Statut:</label>
+        <select id="status" name="status">
+          <option>Disponible</option>
+          <option>Vendu</option>
+          <option>En Construction</option>
+        </select>
+      </div>
+      <button type="submit">{{ residenceId ? 'Update' : 'Add' }}</button>
+    </form>
+  </div>
+  

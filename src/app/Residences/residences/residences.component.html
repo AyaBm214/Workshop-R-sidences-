@@ -1,31 +1,44 @@
 <div class="search-container">
-    <input type="text" [(ngModel)]="searchText" placeholder="Rechercher par adresse..." class="search-input" />
-  </div>
-  
-  <div class="residences-container">
-    <div class="residence-card" *ngFor="let residence of filteredResidences()">
-      <img [src]="residence.image" alt="{{ residence.name }}" class="residence-image">
-      <div class="residence-details">
-        <h2 class="residence-name">{{ residence.name }}</h2>
-        <p class="residence-status" [ngClass]="residence.status.toLowerCase()">
-          Status: {{ residence.status }}
-        </p>
-  
-        <!-- Bouton Show Location -->
-        <button (click)="showLocation(residence)" class="location-button">Show Location</button>
-  
-        <!-- Bouton Like -->
-        <button (click)="toggleFavorite(residence)" class="like-button">
-          {{ isFavorite(residence) ? 'Unlike' : 'Like' }}
-        </button>
-  
-        <!-- Afficher l'adresse si elle est connue -->
-        <p *ngIf="residenceToShow === residence.id && residence.address !== 'inconnu'" class="residence-address">
-          Adresse: {{ residence.address }}
-        </p>
-      </div>
+  <input type="text" [(ngModel)]="searchText" placeholder="Rechercher par adresse..." class="search-input" />
+</div>
+
+<div class="residences-container">
+  <div class="residence-card" *ngFor="let residence of filteredResidences()">
+    <img [src]="residence.image" alt="{{ residence.name }}" class="residence-image">
+    
+    <div class="residence-details">
+      <h2 class="residence-name">{{ residence.name }}</h2>
+      <p class="residence-status" [ngClass]="residence.status.toLowerCase()">
+        Status: {{ residence.status }}
+      </p>
+      
+      <!-- Adresse affichée si connue -->
+      <p *ngIf="residenceToShow === residence.id && residence.address !== 'inconnu'" class="residence-address">
+        Adresse: {{ residence.address }}
+      </p>
+    </div>
+    
+    <!-- Barre d'actions -->
+    <div class="residence-actions">
+      <!-- Bouton Show Location -->
+      <button (click)="showLocation(residence)" class="action-button">Show Location</button>
+      
+      <!-- Bouton Like -->
+      <button (click)="toggleFavorite(residence)" class="action-button">
+        {{ isFavorite(residence) ? 'Unlike' : 'Like' }}
+      </button>
+      
+      <!-- Bouton Détails -->
+      <button routerLink="/residences/{{ residence.id }}" class="action-button">Détails</button>
+
+      <!-- Lien vers la liste des appartements -->
+      <button routerLink="/residences/{{ residence.id }}/apartments" class="action-button">Appartements List</button>
     </div>
   </div>
+</div>
+
+  
+  
   
   
   

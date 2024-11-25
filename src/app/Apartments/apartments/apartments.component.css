@@ -1,0 +1,105 @@
+/* Conteneur principal pour afficher les appartements */
+.apartments-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f7fa;
+    min-height: 100vh;
+  }
+  
+  /* Titre de la page */
+  .apartments-container h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Conteneur pour chaque carte d'appartement */
+  .apartment-card {
+    width: 100%;
+    max-width: 350px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+    text-align: left;
+  }
+  
+  /* Effet de survol pour chaque carte d'appartement */
+  .apartment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Style du titre dans la carte de l'appartement */
+  .apartment-card h2 {
+    font-size: 1.5em;
+    color: #007bff;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  /* Détails de l'appartement */
+  .apartment-card p {
+    font-size: 1em;
+    color: #555;
+    margin: 8px 0;
+  }
+  
+  /* Style pour les informations importantes */
+  .apartment-card .important-info {
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  /* Mise en valeur de l'appartement avec terrasse */
+  .apartment-card .terrace {
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  /* Mise en valeur de l'appartement sans terrasse */
+  .apartment-card .no-terrace {
+    color: #dc3545;
+    font-weight: bold;
+  }
+  
+  /* Style des boutons pour chaque appartement */
+  .apartment-card .action-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+  }
+  
+  /* Effet de survol pour les boutons */
+  .apartment-card .action-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style du bouton d'action "Voir plus" */
+  .apartment-card .view-more {
+    background-color: #28a745;
+  }
+  
+  /* Couleur d'arrière-plan pour la section des appartements */
+  .apartments-container {
+    background-color: #f4f7fa;
+    padding-bottom: 40px;
+  }
+  
+  

@@ -1,0 +1,71 @@
+/* Conteneur principal */
+.residence-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Carte de la résidence */
+  .residence-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .residence-card:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Image */
+  .residence-image {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    max-height: 200px;
+    margin-bottom: 20px;
+  }
+  
+  /* Titre */
+  .residence-title {
+    font-size: 1.8em;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  /* Texte */
+  .residence-text {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  /* Boutons */
+  .residence-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .residence-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .residence-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
