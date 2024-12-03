@@ -7,9 +7,11 @@ import { AddResidenceComponent } from './Residences/add-residence/add-residence.
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ApartmentsByResidenceComponent } from './Apartments/apartments-by-residence/apartments-by-residence.component';
 import { ApartmentsComponent } from './Apartments/apartments/apartments.component';
+import { AddApartmentComponent } from './Apartments/add-apartment/add-apartment.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'create-apartment', component: AddApartmentComponent },  // Route pour afficher le formulaire
   { path: 'residences', component: ResidencesComponent },
   { path: 'residences/:id', component: DetailResidenceComponent  },
   { path: 'add-residence', component: AddResidenceComponent },

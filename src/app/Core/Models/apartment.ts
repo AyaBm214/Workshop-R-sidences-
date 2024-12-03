@@ -6,7 +6,9 @@ export class Apartment {
     terrace!: boolean;          // Si l'appartement a une terrasse ou non
     surfaceterrace!: number;    // Surface de la terrasse en m²
     category!: string;          // Catégorie de l'appartement (par exemple, 'T2', 'T3', etc.)
-    ResidenceId!: number;       // L'ID de la résidence à laquelle cet appartement appartient
+    ResidenceId!: number;  
+    residence: string;
+    // L'ID de la résidence à laquelle cet appartement appartient
   
     constructor(
       apartNum: number,
@@ -15,7 +17,8 @@ export class Apartment {
       terrace: boolean,
       surfaceterrace: number,
       category: string,
-      ResidenceId: number
+      ResidenceId: number,
+      residence:string
     ) {
       this.apartNum = apartNum;
       this.floorNum = floorNum;
@@ -24,6 +27,8 @@ export class Apartment {
       this.surfaceterrace = surfaceterrace;
       this.category = category;
       this.ResidenceId = ResidenceId;
+      this.residence=residence;
     }
+    
   }
   

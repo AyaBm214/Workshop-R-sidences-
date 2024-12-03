@@ -1,25 +1,36 @@
 .header-nav {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    background-color: #2c3e50; /* Nouveau fond coloré */
-    padding: 10px 20px;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .header-nav a {
     text-decoration: none;
-    color: #ecf0f1; /* Texte clair pour contraster avec le fond sombre */
+    color: #ecf0f1;
     font-weight: 600;
     font-size: 1.2em;
-    padding: 8px 12px;
+    padding: 10px 15px;
     border-radius: 6px;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in-out;
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        margin-bottom: 10px;
+    }
 }
 
 .header-nav a:hover {
-    background-color: #34495e; /* Changement de fond au survol */
-    color: #f1faee; /* Couleur claire du texte au survol */
+    background-color: #34495e;
+    color: #f1faee;
     transform: scale(1.05);
 }

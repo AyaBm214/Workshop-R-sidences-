@@ -1,1 +1,94 @@
-<p>add-apartment works!</p>
+<div class="form-container">
+    <form [formGroup]="apartForm" (ngSubmit)="onSubmit()" class="apartment-form">
+      <h2>Ajouter un appartement</h2>
+  
+     <!-- Numéro de l'appartement -->
+<div class="form-group">
+    <label for="apartmentNumber">Numéro de l'appartement:</label>
+    <input id="apartmentNumber" formControlName="apartmentNumber" type="text" placeholder="Entrez le numéro de l'appartement">
+    <div *ngIf="apartForm.get('apartmentNumber')?.invalid && apartForm.get('apartmentNumber')?.touched" class="error-message">
+      <small *ngIf="apartForm.get('apartmentNumber')?.hasError('required')">Le numéro de l'appartement est obligatoire.</small>
+      <small *ngIf="apartForm.get('apartmentNumber')?.hasError('pattern')">Le numéro de l'appartement doit être un chiffre.</small>
+    </div>
+  </div>
+  
+  <!-- Numéro d'étage -->
+  <div class="form-group">
+    <label for="floorNumber">Numéro d'étage:</label>
+    <input id="floorNumber" formControlName="floorNumber" type="text" placeholder="Entrez le numéro d'étage">
+    <div *ngIf="apartForm.get('floorNumber')?.invalid && apartForm.get('floorNumber')?.touched" class="error-message">
+      <small *ngIf="apartForm.get('floorNumber')?.hasError('required')">Le numéro d'étage est obligatoire.</small>
+      <small *ngIf="apartForm.get('floorNumber')?.hasError('pattern')">Le numéro d'étage doit être un chiffre.</small>
+    </div>
+  </div>
+  
+  
+      <!-- Surface -->
+<div class="form-group">
+    <label for="surface">Surface:</label>
+    <input id="surface" formControlName="surface" type="text" placeholder="Entrez la surface">
+    <div *ngIf="apartForm.get('surface')?.invalid && apartForm.get('surface')?.touched" class="error-message">
+      <small *ngIf="apartForm.get('surface')?.hasError('required')">La surface est obligatoire.</small>
+    </div>
+  </div>
+  
+  
+      <!-- Terrasse -->
+      <div class="form-group">
+        <label for="terrace">Terrasse:</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" formControlName="terrace" value="Yes"> Oui
+          </label>
+          <label>
+            <input type="radio" formControlName="terrace" value="No"> Non
+          </label>
+        </div>
+      </div>
+  
+      <!-- Surface Terrasse (désactivée si "No" est sélectionné) -->
+<div class="form-group">
+    <label for="surfaceTerrace">Surface Terrasse:</label>
+    <input id="surfaceTerrace" formControlName="surfaceTerrace" type="text" placeholder="Entrez la surface de la terrasse" [disabled]="apartForm.get('terrace')?.value === 'No'">
+    <div *ngIf="apartForm.get('surfaceTerrace')?.invalid && apartForm.get('surfaceTerrace')?.touched" class="error-message">
+      <small *ngIf="apartForm.get('surfaceTerrace')?.hasError('required')">La surface de la terrasse est obligatoire.</small>
+    </div>
+  </div>
+  
+  
+      <!-- Catégorie -->
+<div class="form-group">
+    <label for="category">Catégorie:</label>
+    <select id="category" formControlName="category">
+      <option value="S+1">S+1</option>
+      <option value="S+2">S+2</option>
+      <option value="S+3">S+3</option>
+    </select>
+    <div *ngIf="apartForm.get('category')?.invalid && apartForm.get('category')?.touched" class="error-message">
+      <small *ngIf="apartForm.get('category')?.hasError('required')">La catégorie est obligatoire.</small>
+    </div>
+  </div>
+  
+  <!-- Résidence -->
+  <div class="form-group">
+    <label for="residence">Résidence:</label>
+    <select id="residence" formControlName="residence">
+      <option value="">Sélectionnez une résidence</option>
+      <option value="residence1">Résidence 1</option>
+      <option value="residence2">Résidence 2</option>
+    </select>
+    <div *ngIf="apartForm.get('residence')?.invalid && apartForm.get('residence')?.touched" class="error-message">
+      <small *ngIf="apartForm.get('residence')?.hasError('required')">La résidence est obligatoire.</small>
+    </div>
+  </div>
+  
+  
+      <!-- Boutons -->
+      <div class="form-buttons">
+        <button type="submit" [disabled]="apartForm.invalid">Ajouter</button>
+        <button type="button" (click)="resetForm()">Réinitialiser</button>
+      </div>
+    </form>
+  </div>
+  
+  
