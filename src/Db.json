@@ -1,0 +1,72 @@
+{
+  "residences": [
+    {
+      "id": "1",
+      "name": "Omran 15",
+      "address": "Prés du MG Génèrale",
+      "image": "assets/images/R1.jpeg",
+      "status": "Disponible"
+    },
+    {
+      "name": "Amen",
+      "address": "Ariana Soghra",
+      "status": "En Vendu",
+      "image": "assets/images/R2.jpg",
+      "id": "2"
+    },
+    {
+      "id": "5",
+      "name": "sds",
+      "address": "qsdsqd",
+      "image": "sdsd",
+      "status": "En Construction"
+    },
+    {
+      "id": 5,
+      "name": "dsf",
+      "address": "dsf",
+      "image": "sds",
+      "status": "Disponible"
+    }
+  ],
+  "apartments": [
+    {
+      "apartNum": 101,
+      "floorNum": 1,
+      "surface": 70,
+      "terrace": true,
+      "surfaceTerrace": 45,
+      "category": "T2",
+      "ResidenceId": 1,
+      "id": "0a25"
+    },
+    {
+      "apartNum": 102,
+      "floorNum": 5,
+      "surface": 60,
+      "terrace": false,
+      "surfaceTerrace": 15,
+      "category": "T4",
+      "ResidenceId": 2,
+      "id": "9ef5"
+    },
+    {
+      "apartNum": 103,
+      "floorNum": 3,
+      "surface": 50,
+      "terrace": true,
+      "surfaceTerrace": 20,
+      "category": "T5",
+      "ResidenceId": 3,
+      "id": "3d39"
+    }
+  ],
+  "annonces": [
+    {
+      "id": "1",
+      "title": "Appartement Moderne",
+      "price": 250000,
+      "residenceId": 1
+    }
+  ]
+}

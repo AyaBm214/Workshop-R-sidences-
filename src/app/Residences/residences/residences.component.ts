@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Residence } from 'src/app/Core/Models/residence';
+import { CommonService } from 'src/app/Core/Services/common.service';
+import { ResidenceService } from 'src/app/Core/Services/residence.service';
+
 
 
 @Component({
@@ -7,46 +10,69 @@ import { Residence } from 'src/app/Core/Models/residence';
   templateUrl: './residences.component.html',
   styleUrls: ['./residences.component.css']
 })
-export class ResidencesComponent {
-  listResidences:Residence[]=[
-    {id:1,"name": "Omran 15","address":"Prés du MG Génèrale ", "image":"../../assets/images/R1.jpeg", status: "Disponible"},
-     {id:2,"name": "Narjes ", "address":"Ariana Soghra","image":"../../assets/images/R2.jpg", status: "En Vendu" },
-     
-   ];
-   residenceToShow: number | null = null;
-  favoriteResidences: Residence[] = [];
-  searchText: string = '';
-
-  showLocation(residence: Residence) {
-    if (residence.address === "inconnu") {
-      alert(`L'adresse de cette résidence est "inconnu".`);
-      this.residenceToShow = null;
-    } else {
-      this.residenceToShow = residence.id;
-    }
-  }
-
-  toggleFavorite(residence: Residence) {
-    if (this.isFavorite(residence)) {
-      this.favoriteResidences = this.favoriteResidences.filter(r => r.id !== residence.id);
-    } else {
-      this.favoriteResidences.push(residence);
-    }
-  }
-
-  isFavorite(residence: Residence): boolean {
-    return this.favoriteResidences.some(r => r.id === residence.id);
-  }
-
-  filteredResidences(): Residence[] {
-    if (!this.searchText) {
-      return this.listResidences;
-    }
-    return this.listResidences.filter(residence =>
-      residence.address.toLowerCase().includes(this.searchText.toLowerCase())
-    );
-  }
-
- 
-
+export class ResidencesComponent implements OnInit {
+residenceToShow: any;
+toggleFavorite(_t9: Residence) {
+throw new Error('Method not implemented.');
 }
+  listResidences:Residence[]=[];
+  //etatA = false;
+  favoriteResidences: Residence[] = [];
+  searchItem: string = '';
+
+  constructor(private cm:CommonService, private residenceR:ResidenceService){}
+ 
+  ngOnInit(){
+   console.log(this.cm.getSameValueOf(this.listResidences,"status", "Disponible"));
+   this.residenceR.getAllresidences().subscribe(
+     data => this.listResidences = data
+   );
+  }
+  showLocation(residence: Residence) {
+   if (residence.address === "inconnu") {
+     alert(`L'adresse de la résidence "${residence.name}" est inconnu.`);
+     //this.etatA= false
+   } else {
+     alert(`Adresse de la résidence "${residence.name}": ${residence.address}`);
+     //this.etatA=true;
+   }
+ }
+
+
+ addFavorite(residence: Residence) {
+   const index = this.favoriteResidences.findIndex(r => r.id === residence.id);
+   if (index > -1) {
+     this.favoriteResidences.splice(index, 1);  // Supprime des favoris
+   } else {
+     this.favoriteResidences.push(residence);  // Ajoute aux favoris
+   }
+ }
+
+ isFavorite(residence: Residence) {
+   return this.favoriteResidences.some(r => r.id === residence.id);
+ }
+ //vous pouvez la simplifier avec seulement un simple push dans une liste de favoris ( selon la classe des étudiants :) )
+
+ // question e : on commence par ngIf puis on utilise la methode filter en ts
+
+ filteredResidences() {
+   // Filtre les résidences en fonction de l'adresse
+   return this.listResidences.filter(residence => 
+     residence.address.toLowerCase().includes(this.searchItem.toLowerCase())
+   );
+ }
+
+
+
+ delete(id: number) {
+  this.residenceR.deleteResidence(id).subscribe(() => {
+    alert("Résidence supprimée avec succès !");
+    // Mise à jour de la liste localement après la suppression
+    this.listResidences = this.listResidences.filter(residence => residence.id !== id);
+  }, error => {
+    console.error("Erreur lors de la suppression :", error);
+    alert("Échec de la suppression. Veuillez réessayer.");
+  });
+}
+
+  }

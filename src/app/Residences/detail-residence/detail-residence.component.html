@@ -4,14 +4,11 @@
       <h1 class="residence-title">{{ residence.name }}</h1>
       <p class="residence-text"><strong>Adresse :</strong> {{ residence.address }}</p>
       <p class="residence-text"><strong>Statut :</strong> {{ residence.status }}</p>
-  
-      <!-- Boutons -->
-      <button class="residence-button" routerLink="/add-residence" queryParamsHandling="preserve">Add Residence</button>
       <button 
-        class="residence-button update-button" 
-        routerLink="/add-residence" 
-        [queryParams]="{ id: residence.id }">Update Residence</button>
-  
+      class="residence-button update-button" 
+      [routerLink]="'/editResidence/' + residence.id">
+      Update Residence
+    </button>
       <!-- Bouton Next -->
       <button class="residence-button" (click)="nextResidence()">Next</button>
     </div>

@@ -1,0 +1,43 @@
+<div>
+    <h2>Liste des Annonces</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Prix</th>
+          <th>Résidence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let annonce of annonces">
+          <td>{{ annonce.title }}</td>
+          <td>{{ annonce.price }}</td>
+          <td>{{ annonce.residenceId }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <h2>Ajouter une Annonce</h2>
+    <form [formGroup]="annonceForm" (ngSubmit)="addAnnonce()">
+      <div>
+        <label for="title">Titre:</label>
+        <input id="title" formControlName="title" required />
+        <div *ngIf="annonceForm.get('title')?.invalid && annonceForm.get('title')">
+          Titre requis (minimum 3 caractères).
+        </div>
+      </div>
+      <div>
+        <label for="price">Prix:</label>
+        <input id="price" type="number" formControlName="price" required />
+        <div *ngIf="annonceForm.get('price')?.invalid && annonceForm.get('price')">
+          Prix requis (entre 70,000 et 500,000).
+        </div>
+      </div>
+      <div>
+        <label for="residenceId">Résidence:</label>
+        <input id="residenceId" formControlName="residenceId" required />
+      </div>
+      <button type="submit" [disabled]="annonceForm.invalid">Ajouter</button>
+      
+    </form>
+  </div>

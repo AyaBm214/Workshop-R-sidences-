@@ -1,38 +1,52 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Apartment } from 'src/app/Core/Models/apartment';
+import { Residence } from 'src/app/Core/Models/residence';
+import { ResidenceService } from 'src/app/Core/Services/residence.service';
 
 @Component({
   selector: 'app-add-residence',
   templateUrl: './add-residence.component.html',
   styleUrls: ['./add-residence.component.css']
 })
-export class AddResidenceComponent implements OnInit{
-  residenceId: number | null = null;
+export class AddResidenceComponent {
+  listResidences:Residence[]=[];
 
-  constructor(private route: ActivatedRoute) {}
+ 
+  listApartments:Apartment[]=[];
 
-  ngOnInit(): void {
-    // Récupérer l'id depuis l'URL pour mise à jour
-    this.residenceId = this.route.snapshot.queryParams['id'] 
-      ? Number(this.route.snapshot.queryParams['id']) 
-      : null;
 
-    if (this.residenceId) {
-      this.loadResidence(this.residenceId); // Charger les données de la résidence pour mise à jour
-    }
-  }
+  constructor(private fb: FormBuilder, private residenceS:ResidenceService, private r:Router) { }
+  addResidenceForm = this.fb.group({
+    id: [null],
+    name: ['', [Validators.required, Validators.minLength(3)]],
+    address: ['', Validators.required],
+    image: ['',Validators.required],
+    status: ['',Validators.required],
+  });
 
-  loadResidence(id: number): void {
-    // Remplacez par le code pour charger la résidence depuis un service
-    console.log(`Charger la résidence avec l'id ${id}`);
-  }
+  
+  get name() { return this.addResidenceForm.get('name'); }
+  get address() { return this.addResidenceForm.get('address'); }
+  get image() { return this.addResidenceForm.get('image'); }
+  get status() { return this.addResidenceForm.get('status'); }
+ 
 
-  saveResidence(): void {
-    if (this.residenceId) {
-      console.log('Mise à jour de la résidence:', this.residenceId);
-    } else {
-      console.log('Ajout d’une nouvelle résidence');
-    }
+
+  saveR(){
+  let newResidence: Residence = {   
+  id: 5,
+  name: this.addResidenceForm.value.name || '',
+  address: this.addResidenceForm.value.address || '',
+  image: this.addResidenceForm.value.image || '',
+  status: this.addResidenceForm.value.status || ''}
+  //this.listResidences.push(newResidence);
+  this.residenceS.addResidence(newResidence).subscribe(
+    ()=>{alert("Residence added successfully");
+this.r.navigate(['/residences']);
+    });
+ 
   }
 
 }

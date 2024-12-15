@@ -15,6 +15,11 @@ import { ApartmentsByResidenceComponent } from './Apartments/apartments-by-resid
 import { AddApartmentComponent } from './Apartments/add-apartment/add-apartment.component';
 import { DetailResidenceComponent } from './Residences/detail-residence/detail-residence.component';
 import { AddResidenceComponent } from './Residences/add-residence/add-residence.component';
+import{HttpClientModule} from '@angular/common/http';
+import { AnnonceComponent } from './annonce/annonce.component';
+import { AnnoceService } from './Core/Services/annoce.service';
+import { AddAnnonceComponent } from './annonce/add-annonce/add-annonce.component';
+import { ResidenceEditComponent } from './Residences/residence-edit/residence-edit.component';
 
 
 @NgModule({
@@ -29,15 +34,19 @@ import { AddResidenceComponent } from './Residences/add-residence/add-residence.
     ApartmentsByResidenceComponent,
     AddApartmentComponent,
     DetailResidenceComponent,
-    AddResidenceComponent
+    AddResidenceComponent,
+    AnnonceComponent,
+    AddAnnonceComponent,
+    ResidenceEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AnnoceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
